@@ -95,6 +95,13 @@ defmodule Eflatbuffers do
   def get!(data, path, schema) when is_binary(schema) do
     get!(data, path, parse_schema!(schema))
   end
+
+
+  def get_union!(data, path, union_name, schema_str) when is_binary(schema_str) do
+    schema = parse_schema!(schema_str)
+    Eflatbuffers.RandomAccess.get_union(data, path, union_name, schema)
+  end
+
   def get!(data, path, {_tables, %{root_type: root_type}} = schema) do
     Eflatbuffers.RandomAccess.get(path, {:table, %{ name: root_type }}, 0, data, schema)
   end
