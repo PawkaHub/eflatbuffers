@@ -41,6 +41,13 @@ defmodule Eflatbuffers.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
+      {
+        :flatbuffer_port,
+        git: "git@github.com:Reimerei/elixir-flatbuffers.git",
+        branch: "master",
+        only: :test,
+        override: true
+      },
       {:ex_doc, ">= 0.0.0", only: :dev},
     ]
   end
