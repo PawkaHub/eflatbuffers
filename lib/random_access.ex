@@ -15,7 +15,7 @@ defmodule Eflatbuffers.RandomAccess do
         # and the data is actually in the next field
         # since the schema does not contain the *_type field
         type_pointer     = data_pointer(index, table_pointer_pointer, data)
-        union_type_index = Eflatbuffers.Reader.read({:byte, %{ default: 0 }}, type_pointer, data, schema) - 1
+        union_type_index = Eflatbuffers.Reader.read({:byte, %{ default: 0 }}, type_pointer, data, schema)
         {:union, union_definition} = Map.get(tables, union_name)
         union_type = Map.get(union_definition.members, union_type_index)
         type = {:table, %{ name: union_type }}
