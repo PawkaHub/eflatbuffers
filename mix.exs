@@ -4,7 +4,7 @@ defmodule Eflatbuffers.Mixfile do
   def project do
     [
       app: :eflatbuffers,
-      version: "0.1.0",
+      version: "0.1.1",
       description: "Elixir/Erlang flatbuffers implementation",
       package: package(),
       elixir: ">= 1.1.1",
